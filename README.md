@@ -15,10 +15,17 @@ ARSHH is a brochure-style landing page for a 3D printed lamps business. The page
 
 ## Google Sheets enquiry setup
 
-1. Create a Google Sheet with columns for `submittedAt`, `name`, `email`, `city`, `state`, `lampType`, and `service`.
-2. In Extensions > Apps Script, add a `doPost(e)` script that appends those values to the active sheet.
-3. Deploy the script as a Web App with access set to anyone.
-4. Paste the Web App URL into `GOOGLE_SHEET_WEB_APP_URL` near the bottom of `index.html`.
+The enquiry form is prepared for this Google Sheet:
+`https://docs.google.com/spreadsheets/d/1tEFe6kZZ0-Kgx-2eNuruDHDe2Vk0Rx7G6pN9uVNMshw/edit?usp=sharing`
+
+1. Open that Sheet, then go to Extensions > Apps Script.
+2. Paste the contents of `google-apps-script.gs` into the Apps Script editor.
+3. Deploy the script as a Web App.
+4. Set "Execute as" to yourself and "Who has access" to anyone.
+5. Copy the Web App URL.
+6. Paste that URL into `GOOGLE_SHEET_WEB_APP_URL` near the bottom of `index.html`.
+
+The script creates an `Enquiries` tab if it does not already exist and writes columns for `submittedAt`, `name`, `email`, `city`, `state`, `lampType`, and `service`.
 
 ## Preview
 
