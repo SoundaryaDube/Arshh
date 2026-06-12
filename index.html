@@ -248,6 +248,7 @@
       position: relative;
       display: grid;
       place-items: end center;
+      perspective: 1200px;
     }
 
     .lamp {
@@ -256,7 +257,8 @@
       height: min(580px, 72vh);
       min-height: 480px;
       filter: drop-shadow(0 50px 60px rgba(0, 0, 0, 0.46));
-      animation: floatLamp 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+      animation: floatLamp 7s ease-in-out infinite;
     }
 
     .lamp__shade {
@@ -265,7 +267,8 @@
       top: 4%;
       width: 78%;
       height: 52%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotateX(-5deg) rotateY(-12deg);
+      transform-style: preserve-3d;
       border-radius: 50% 50% 42% 42% / 16% 16% 78% 78%;
       background:
         repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 2px, transparent 2px 16px),
@@ -292,13 +295,18 @@
       opacity: 0.65;
     }
 
+    .lamp__shade::before {
+      transform: translateZ(28px) scaleX(0.9);
+      box-shadow: 0 0 80px rgba(255, 221, 140, 0.35);
+    }
+
     .lamp__stem {
       position: absolute;
       left: 50%;
       top: 47%;
       width: 18px;
       height: 38%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) translateZ(16px);
       border-radius: 999px;
       background: linear-gradient(90deg, #5c4b35, #efe0bd 45%, #8a6a3e);
       box-shadow: 0 0 28px rgba(220, 168, 76, 0.3);
@@ -310,7 +318,7 @@
       bottom: 3%;
       width: 60%;
       height: 16%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotateX(64deg) translateZ(-18px);
       border-radius: 50%;
       background:
         repeating-linear-gradient(90deg, rgba(255, 250, 242, 0.16) 0 2px, transparent 2px 18px),
@@ -808,6 +816,132 @@
       color: var(--ink);
     }
 
+    .enquiry {
+      max-width: 1180px;
+      margin: 44px auto 0;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .enquiry__note,
+    .enquiry__form {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, 0.76);
+      box-shadow: 0 12px 38px rgba(25, 23, 19, 0.08);
+    }
+
+    .enquiry__note {
+      padding: clamp(26px, 4vw, 42px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(220, 168, 76, 0.24), transparent 34%),
+        linear-gradient(145deg, rgba(79, 93, 74, 0.18), transparent),
+        rgba(255, 250, 242, 0.76);
+    }
+
+    .enquiry__note h3 {
+      max-width: 360px;
+      margin-top: 14px;
+      font-family: Georgia, Times New Roman, serif;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.04;
+    }
+
+    .enquiry__note p {
+      color: rgba(25, 23, 19, 0.68);
+      line-height: 1.78;
+    }
+
+    .enquiry__contact {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      color: rgba(25, 23, 19, 0.64);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .enquiry__form {
+      padding: clamp(22px, 4vw, 36px);
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field--full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: rgba(25, 23, 19, 0.68);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select {
+      min-height: 48px;
+      width: 100%;
+      border: 1px solid rgba(25, 23, 19, 0.18);
+      border-radius: 8px;
+      padding: 0 14px;
+      background: rgba(255, 250, 242, 0.88);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(179, 99, 69, 0.72);
+      background: var(--paper-soft);
+      box-shadow: 0 0 0 3px rgba(220, 168, 76, 0.2);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      padding-top: 4px;
+    }
+
+    .form-status {
+      min-height: 22px;
+      color: rgba(25, 23, 19, 0.66);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-status[data-state="success"] {
+      color: var(--moss);
+    }
+
+    .form-status[data-state="error"] {
+      color: var(--clay);
+    }
+
     .footer {
       display: flex;
       flex-wrap: wrap;
@@ -833,8 +967,8 @@
     }
 
     @keyframes floatLamp {
-      0%, 100% { transform: translateY(0) rotate(-1deg); }
-      50% { transform: translateY(-16px) rotate(1deg); }
+      0%, 100% { transform: translateY(0) rotateX(2deg) rotateY(-18deg) rotateZ(-1deg); }
+      50% { transform: translateY(-18px) rotateX(-2deg) rotateY(18deg) rotateZ(1deg); }
     }
 
     @media (max-width: 980px) {
@@ -847,7 +981,8 @@
       .story,
       .custom,
       .custom__main,
-      .cta {
+      .cta,
+      .enquiry {
         grid-template-columns: 1fr;
       }
 
@@ -903,6 +1038,10 @@
 
       .product__art {
         min-height: 260px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
       .step {
@@ -1230,7 +1369,63 @@
             <h2>Send a mood, a room, or a name. We will shape it into light.</h2>
             <p>For orders, collaborations, bulk gifting, and bespoke lamp designs, contact ARSHH with your preferred size, colour, quantity, and deadline.</p>
           </div>
-          <a class="button button--gold" href="mailto:hello@arshh.in?subject=Custom%20ARSHH%203D%20Printed%20Lamp">Enquire Now</a>
+          <a class="button button--gold" href="#enquiry-form">Enquire Now</a>
+        </div>
+
+        <div class="enquiry" id="enquiry-form">
+          <div class="enquiry__note">
+            <div>
+              <p class="section__kicker">Enquire now</p>
+              <h3>Tell us what should glow next.</h3>
+            </div>
+            <p>Share your location, lamp type, and order need. ARSHH will review your enquiry and reach out on your email.</p>
+            <div class="enquiry__contact">Response by email</div>
+          </div>
+
+          <form class="enquiry__form" id="arshhEnquiryForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" autocomplete="address-level2" required>
+              </div>
+              <div class="field">
+                <label for="state">State</label>
+                <input id="state" name="state" autocomplete="address-level1" required>
+              </div>
+              <div class="field">
+                <label for="lampType">Type of lamp</label>
+                <select id="lampType" name="lampType" required>
+                  <option value="">Select lamp type</option>
+                  <option>Floor stand lamp</option>
+                  <option>Table lamp</option>
+                  <option>Wall mounted lamp</option>
+                  <option>Ceiling lamp</option>
+                  <option>Custom lamp</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="service">Interested service</label>
+                <select id="service" name="service" required>
+                  <option value="">Select service</option>
+                  <option>Bulk order</option>
+                  <option>Single order</option>
+                  <option>Customized order</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button button--gold" type="submit">Submit Enquiry</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
       </section>
     </main>
@@ -1241,5 +1436,46 @@
       <span>Made layer by layer</span>
     </footer>
   </div>
+  <script>
+    const GOOGLE_SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const enquiryForm = document.getElementById("arshhEnquiryForm");
+    const formStatus = document.getElementById("formStatus");
+
+    enquiryForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const endpointIsReady = GOOGLE_SHEET_WEB_APP_URL.startsWith("https://");
+      const submitButton = enquiryForm.querySelector("button[type='submit']");
+      const formData = new FormData(enquiryForm);
+      formData.append("submittedAt", new Date().toISOString());
+
+      if (!endpointIsReady) {
+        formStatus.textContent = "Add your Google Apps Script web app URL in index.html to save enquiries to Google Sheets.";
+        formStatus.dataset.state = "error";
+        return;
+      }
+
+      submitButton.disabled = true;
+      formStatus.textContent = "Sending your enquiry...";
+      formStatus.dataset.state = "";
+
+      try {
+        await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: new URLSearchParams(formData)
+        });
+        enquiryForm.reset();
+        formStatus.textContent = "Thank you. Your enquiry has been received, and ARSHH will reach out by email.";
+        formStatus.dataset.state = "success";
+      } catch (error) {
+        formStatus.textContent = "The enquiry could not be sent. Please try again in a moment.";
+        formStatus.dataset.state = "error";
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
