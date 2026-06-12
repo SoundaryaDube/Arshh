@@ -375,15 +375,15 @@
     }
 
     .collection {
-      max-width: 1180px;
+      max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
     }
 
     .product {
-      min-height: 520px;
+      min-height: 560px;
       display: flex;
       flex-direction: column;
       border: 1px solid var(--line);
@@ -394,7 +394,8 @@
     }
 
     .product__art {
-      min-height: 300px;
+      min-height: 340px;
+      aspect-ratio: 4 / 5;
       position: relative;
       display: grid;
       place-items: center;
@@ -406,7 +407,7 @@
     }
 
     .product__art::after {
-      content: "";
+      content: none;
       position: absolute;
       bottom: 36px;
       width: 62%;
@@ -414,6 +415,19 @@
       border-radius: 50%;
       background: rgba(25, 23, 19, 0.16);
       filter: blur(10px);
+    }
+
+    .product__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+      transition: transform 420ms ease;
+    }
+
+    .product:hover .product__art img {
+      transform: scale(1.055);
     }
 
     .mini-lamp {
@@ -494,6 +508,7 @@
       font-size: 11px;
       font-weight: 900;
       letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
     .product h3 {
@@ -502,6 +517,14 @@
       font-size: 30px;
       font-weight: 400;
       line-height: 1.08;
+    }
+
+    .product__price {
+      margin-top: 14px;
+      color: var(--ink);
+      font-family: Georgia, Times New Roman, serif;
+      font-size: 28px;
+      line-height: 1;
     }
 
     .product p {
@@ -962,37 +985,157 @@
         <div class="collection">
           <article class="product">
             <div class="product__art">
-              <div class="mini-lamp"><span></span></div>
+              <img src="assets/products/floor-arboreal.jpg" alt="ARSHH arboreal floor stand lamp with botanical cutout shade" loading="lazy">
             </div>
             <div class="product__body">
-              <span class="product__index">Table Lamp 001</span>
-              <h3>Aura Ribbed Lamp</h3>
-              <p>A warm statement lamp with vertical ribbing that diffuses the LED core into a calm amber glow.</p>
-              <div class="product__foot"><span>PLA</span><span>Bedroom / Desk</span></div>
+              <span class="product__index">Floor Stand Lamp</span>
+              <h3>Arboreal Light Sculpture</h3>
+              <div class="product__price">Rs 2,499/-</div>
+              <p>A tall botanical floor lamp with a soft white shade and black stand for living rooms and reading corners.</p>
+              <div class="product__foot"><span>3D printed shade</span><span>Floor</span></div>
             </div>
           </article>
 
           <article class="product">
             <div class="product__art">
-              <div class="mini-lamp"><span></span></div>
+              <img src="assets/products/floor-wave-gold.jpg" alt="ARSHH gold floor stand lamp with wavy ribbed 3D printed shade" loading="lazy">
             </div>
             <div class="product__body">
-              <span class="product__index">Pendant 002</span>
-              <h3>Petal Drop Shade</h3>
-              <p>A hanging lamp inspired by folded petals, designed for cafes, reading nooks, and cozy dining corners.</p>
-              <div class="product__foot"><span>Matte PLA</span><span>Ceiling / Cafe</span></div>
+              <span class="product__index">Floor Stand Lamp</span>
+              <h3>Wave Column Floor Lamp</h3>
+              <div class="product__price">Rs 2,499/-</div>
+              <p>A sculptural ribbed floor lamp with a brass-finish stand and warm ambient glow.</p>
+              <div class="product__foot"><span>Textured PLA</span><span>Floor</span></div>
             </div>
           </article>
 
           <article class="product">
             <div class="product__art">
-              <div class="mini-lamp"><span></span></div>
+              <img src="assets/products/table-coral-wave.jpg" alt="ARSHH coral wave table lamp with glowing ribbed shell" loading="lazy">
             </div>
             <div class="product__body">
-              <span class="product__index">Gift 003</span>
-              <h3>Name Glow Lamp</h3>
-              <p>Personalized lamp bodies with names, initials, symbols, or event marks integrated into the print.</p>
-              <div class="product__foot"><span>Custom</span><span>Gifts / Events</span></div>
+              <span class="product__index">Table Lamp</span>
+              <h3>Coral Wave Table Lamp</h3>
+              <div class="product__price">Rs 699/-</div>
+              <p>A playful coral-toned table lamp with flowing ribs for bedside tables, shelves, and gifting.</p>
+              <div class="product__foot"><span>Warm LED</span><span>Table</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/table-bubble-column.jpg" alt="ARSHH white bubble column table lamp beside books" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Table Lamp</span>
+              <h3>Bubble Column Lamp</h3>
+              <div class="product__price">Rs 699/-</div>
+              <p>A compact white diffuser with stacked rounded ribs for desks, nightstands, and cozy work corners.</p>
+              <div class="product__foot"><span>Compact glow</span><span>Table</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/table-pleated-glow.jpg" alt="ARSHH pleated amber table lamp on black base" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Table Lamp</span>
+              <h3>Pleated Glow Lamp</h3>
+              <div class="product__price">Rs 699/-</div>
+              <p>A bright pleated lamp with golden diffusion and a black base for modern side tables.</p>
+              <div class="product__foot"><span>Pleated shade</span><span>Table</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/wall-ribbed-sconce.jpg" alt="ARSHH ribbed white wall mounted lamp above a brass shelf" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Wall Mounted</span>
+              <h3>Ribbed Shelf Sconce</h3>
+              <div class="product__price">Rs 1,499/-</div>
+              <p>A clean wall-mounted ribbed shade that throws a soft upward and downward glow.</p>
+              <div class="product__foot"><span>Wall fixture</span><span>Sconce</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/wall-twist-sconce.jpg" alt="ARSHH twist wall mounted lamp on wood backdrop" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Wall Mounted</span>
+              <h3>Twist Wall Sconce</h3>
+              <div class="product__price">Rs 1,499/-</div>
+              <p>A sculpted spiral wall lamp that adds a soft vertical accent to bedrooms and hallway corners.</p>
+              <div class="product__foot"><span>Swirl shade</span><span>Sconce</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/wall-column-sconce.jpg" alt="ARSHH cylindrical textured wall mounted lamp glowing warm white" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Wall Mounted</span>
+              <h3>Column Texture Sconce</h3>
+              <div class="product__price">Rs 1,499/-</div>
+              <p>A cylindrical wall lamp with layered grooves and warm diffusion for understated interiors.</p>
+              <div class="product__foot"><span>Ribbed cylinder</span><span>Sconce</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/wall-origami-sconce.jpg" alt="ARSHH origami style wall mounted lamp with white bracket" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Wall Mounted</span>
+              <h3>Origami Wall Lamp</h3>
+              <div class="product__price">Rs 1,499/-</div>
+              <p>A faceted white wall lamp with a geometric shade and clean architectural mounting arm.</p>
+              <div class="product__foot"><span>Faceted shade</span><span>Sconce</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/ceiling-swirl-pendant.jpg" alt="ARSHH white swirl ceiling pendant lamp against blue wall" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Ceiling Lamp</span>
+              <h3>Swirl Pendant Lamp</h3>
+              <div class="product__price">Rs 1,199/-</div>
+              <p>A suspended swirl pendant that casts elegant patterns across dining corners and studio spaces.</p>
+              <div class="product__foot"><span>Pendant</span><span>Ceiling</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/ceiling-origami-pendant.jpg" alt="ARSHH faceted origami ceiling pendant lamp against green wall" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Ceiling Lamp</span>
+              <h3>Origami Pendant Lamp</h3>
+              <div class="product__price">Rs 1,199/-</div>
+              <p>A faceted pendant shade with soft cream diffusion and a brass ceiling canopy.</p>
+              <div class="product__foot"><span>Geometric</span><span>Ceiling</span></div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product__art">
+              <img src="assets/products/ceiling-honeycomb-pendant.jpg" alt="ARSHH golden honeycomb ceiling pendant lamp" loading="lazy">
+            </div>
+            <div class="product__body">
+              <span class="product__index">Ceiling Lamp</span>
+              <h3>Honeycomb Pendant Lamp</h3>
+              <div class="product__price">Rs 1,199/-</div>
+              <p>A golden perforated pendant that creates dramatic shadows and a warm decorative glow.</p>
+              <div class="product__foot"><span>Perforated</span><span>Ceiling</span></div>
             </div>
           </article>
         </div>
