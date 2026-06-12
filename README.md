@@ -1,52 +1,15 @@
-# Arshh
+# ARSHH
 
+ARSHH is a brochure-style landing page for a 3D printed lamps business. The page presents sculptural lamp visuals, a curated collection, the custom design process, material options, and a direct enquiry call to action.
 
-📌 About Arshh
+## Highlights
 
-Arshh is a modern 3D printed product company focused on designing and manufacturing innovative, customizable, and high-quality products using advanced additive manufacturing technologies.
+- Premium editorial landing page for 3D printed lamps
+- Responsive single-file static site
+- Generated lamp visuals using HTML and CSS
+- Sections for collection, process, customization, materials, and contact
+- Ready for GitHub Pages hosting from `index.html`
 
-From aesthetic decor items to functional prototypes and personalized creations, Arshh combines creativity with precision engineering to deliver unique products for customers, creators, and businesses.
+## Preview
 
-🛠️ What We Offer
-🎨 Custom 3D Printed Products
-Personalized gifts
-Nameplates
-Keychains
-Miniatures
-Home decor items
-⚙️ Functional Prints
-Phone stands
-Desk organizers
-Tool holders
-Mechanical parts
-Utility products
-🧩 Prototyping Services
-Product prototypes
-Engineering models
-Startup MVP designs
-Rapid prototyping solutions
-🏢 Business Solutions
-Bulk manufacturing
-Branding merchandise
-Corporate gifts
-Product customization
-🖨️ Technologies We Use
-FDM (Fused Deposition Modeling)
-Resin Printing
-CAD Modeling
-Rapid Prototyping
-Product Visualization
-📦 Materials
-PLA
-PETG
-ABS
-Resin
-Flexible TPU
-🌟 Why Choose Arshh?
-
-✅ High-quality prints
-✅ Affordable pricing
-✅ Fast delivery
-✅ Custom design support
-✅ Sustainable manufacturing
-✅ Precision & durability
+Open `index.html` in a browser, or serve the folder with any static server.
